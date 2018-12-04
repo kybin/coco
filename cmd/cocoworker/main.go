@@ -7,5 +7,5 @@ package main
 // You can run multiple workers in a machine,
 // if then the port must specified, except a default one.
 //
-// If the machine's cpu has more than 8 cores, it will automatically drop
+// If the machine's cpu has more than 8 threads, it will automatically drop
 // 1 core for other job (is usually monitoring).
