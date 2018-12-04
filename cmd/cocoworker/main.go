@@ -8,4 +8,4 @@ package main
 // if then the port must specified, except a default one.
 //
 // If the machine's cpu has more than 8 threads, it will automatically drop
-// 1 core for other job (is usually monitoring).
+// 1 core for other job (is usually for monitoring).
