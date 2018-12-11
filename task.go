@@ -22,6 +22,8 @@ type CmdGroup []Cmd
 // for making the process simple.
 // If you need this, please make your own batch script.
 type Task struct {
+	Property Property
+
 	PreCmds CmdGroup
 	Cmds    CmdGroup
 
