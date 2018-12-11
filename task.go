@@ -14,7 +14,7 @@ type CmdGroup []Cmd
 
 // Task's running order is as follows.
 //
-// PreCmd -> (Subtasks's Commands) -> Cmd
+// PreCmds -> (Subtasks's Commands) -> Cmds
 //
 // If one of the commands fails, task will also marked as fail,
 // and the following commands will not run.
@@ -22,8 +22,8 @@ type CmdGroup []Cmd
 // for making the process simple.
 // If you need this, please make your own batch script.
 type Task struct {
-	PreCmd CmdGroup
-	Cmd    CmdGroup
+	PreCmds CmdGroup
+	Cmds    CmdGroup
 
 	Subtasks       []Task
 	SerialSubtasks bool // If true, it will run next sub task when prior sub task is done.
