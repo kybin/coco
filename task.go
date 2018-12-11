@@ -14,7 +14,7 @@ type CmdGroup []Cmd
 
 // Task's running order is as follows.
 //
-// PreCmd -> (Children's Commands) -> Cmd
+// PreCmd -> (Subtasks's Commands) -> Cmd
 //
 // If one of the commands fails, task will also marked as fail,
 // and the following commands will not run.
@@ -25,6 +25,6 @@ type Task struct {
 	PreCmd CmdGroup
 	Cmd    CmdGroup
 
-	Children       []Task
-	SerialChildren bool // If true, it will run next child when prior child done.
+	Subtasks       []Task
+	SerialSubtasks bool // If true, it will run next sub task when prior sub task is done.
 }
