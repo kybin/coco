@@ -1,0 +1,26 @@
+{
+	"name": "sample job",
+	"root_tasks": [
+		{
+			"name": "list in some directories",
+			"property": {
+				"work_group": "linux",
+				"priority": 1
+			},
+			"sub_tasks": [
+				{
+					"name": "ls here",
+					"cmds": [
+						["ls", "-al", "."]
+					]
+				},
+				{
+					"name": "ls test dir",
+					"cmds": [
+						["ls", "-al", "test"]
+					]
+				}
+			]
+		}
+	]
+}
