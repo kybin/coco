@@ -31,8 +31,8 @@ type Task struct {
 	PreCmds CmdGroup
 	Cmds    CmdGroup
 
-	Subtasks       []Task
-	SerialSubtasks bool // If true, it will run next sub task when prior sub task is done.
+	SubTasks       []Task
+	SerialSubTasks bool // If true, it will run next sub task when prior sub task is done.
 }
 
 // Property get it's root task's property.
