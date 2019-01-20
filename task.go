@@ -28,6 +28,8 @@ type Property struct {
 type Task struct {
 	root *RootTask
 
+	Name string
+
 	PreCmds CmdGroup
 	Cmds    CmdGroup
 
