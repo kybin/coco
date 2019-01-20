@@ -1,6 +1,6 @@
 package main
 
-// Server communicates both clients and workers.
+// Farm communicates both clients and workers.
 // It will keep watching jobs and workers, and match those.
 //
 // When it got a job from a client, it will split the job to tasks.
@@ -10,5 +10,5 @@ package main
 // If the worker fails to do the task, it will retry with another worker
 // until reached to certern limit. Then it will mark the task failed.
 //
-// Server also shows current status to it's web page.
+// Farm also shows current status to it's web page.
 // The page should show all current jobs and workers and their status.
