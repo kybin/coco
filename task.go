@@ -1,32 +1,41 @@
-package coco
+package cocofarm
 
-// Task is either a leaf task or a branch task.
-// If a task holds children, it is a branch task, or it is a leaf task.
+// RootTask is a task that is hold property for it's sub tasks.
+type RootTask struct {
+	Task
+	Property Property
+}
 
-// Cmd is a command to be run.
-// First string is a command, and the others are arguments.
-// when a Cmd is empty or nil, the Cmd will skipped.
-type Cmd []string
+// Property defines how, and who will run the task.
+type Property struct {
+	WorkerGroup string
+	Priority    int
+}
 
-// CmdGroup is a bunch of commands that will run in a machine.
-// Task itself does not garantee that it is run inside of same machine.
-type CmdGroup []Cmd
-
-// Task's running order is as follows.
+// Task holds commands to make a job done.
+//
+// A Task could also have it's subtasks.
+// If so, it's running order is as follows.
 //
 // PreCmds -> (Subtasks's Commands) -> Cmds
 //
-// If one of the commands fails, task will also marked as fail,
+// If one of the commands fails, the task will marked as fail,
 // and the following commands will not run.
+//
 // Note that this does not support clean-up command
 // for making the process simple.
-// If you need this, please make your own batch script.
+// If you need that, please make your own batch script.
 type Task struct {
-	Property Property
+	root *RootTask
 
 	PreCmds CmdGroup
 	Cmds    CmdGroup
 
 	Subtasks       []Task
 	SerialSubtasks bool // If true, it will run next sub task when prior sub task is done.
+}
+
+// Property get it's root task's property.
+func (t *Task) Property() Property {
+	return t.root.Property
 }

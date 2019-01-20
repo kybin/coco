@@ -1,5 +1,6 @@
-package coco
+package cocofarm
 
-// Job consists of tasks.
-// A job is actually a root task holds default options for child tasks.
-// Child task could override the default options.
+// Job consists of root tasks.
+type Job struct {
+	RootTasks []RootTask
+}
